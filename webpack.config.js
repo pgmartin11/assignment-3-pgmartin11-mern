@@ -10,7 +10,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.?js$/,
+        /* test: /\.?js$/, */
+        test: /\.(js|jsx)$/i,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
@@ -25,6 +26,18 @@ module.exports = {
           "style-loader",
           "css-loader", // for styles
         ],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          "style-loader",
+          "css-loader", // for styles
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: "asset",
       },
     ],
   },
